@@ -2,8 +2,10 @@ package br.com.pedro.projeto.controller;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,14 +20,12 @@ import br.com.pedro.projeto.service.UsuarioService;
 
 @RestController
 @RequestMapping(value = "/usuario")
+@CrossOrigin
 public class UsuarioController {
 
-	private final UsuarioService usuarioService;
+	@Autowired
+	private UsuarioService usuarioService;
 
-	UsuarioController(UsuarioService usuarioService) {
-		this.usuarioService = usuarioService;
-	}
-	
 	@GetMapping
 	public List<UsuarioDTO> ListarTodos(){
 			return usuarioService.listarTodos();

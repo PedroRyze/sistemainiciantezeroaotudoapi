@@ -12,11 +12,8 @@ import br.com.pedro.projeto.repository.UsuarioRepository;
 @Service
 public class UsuarioService {
 	
-	private final UsuarioRepository usuarioRepository;
-
-	UsuarioService(UsuarioRepository usuarioRepository) {
-		this.usuarioRepository = usuarioRepository;
-	}
+	@Autowired
+	private UsuarioRepository usuarioRepository;
 	
 	public List<UsuarioDTO> listarTodos(){
 		List<UsuarioEntity> usuarios = usuarioRepository.findAll();
